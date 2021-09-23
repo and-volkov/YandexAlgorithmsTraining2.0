@@ -1,4 +1,3 @@
-# data = [2, 0, 1, 1, 0, 1, 0, 2, 1, 2]
 data = list(map(int, input().split()))
 gap = 0
 
@@ -31,10 +30,6 @@ for i in range(len(data)):
 
 print(gap)
 
-
-
-
-# print(gap)
 
 
 
