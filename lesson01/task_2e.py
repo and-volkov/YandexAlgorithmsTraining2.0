@@ -35,3 +35,6 @@ for i in range(n - 1):
         tries += sort_diplomas[i]
 
 print(tries)
+
+# после разбора
+print(sum(diplomas) - max(diplomas))
