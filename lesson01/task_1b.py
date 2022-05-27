@@ -14,14 +14,7 @@
 
 n, i, j = map(int, input().split())
 
-lst = list(range(1, n + 1))
-mid = len(lst) // 2
-# разворачиваем оба списка, что бы "ехать в обратную сторону"
-lst_forward = lst[:mid][::-1]
-lst_backward = lst[mid:][::-1]
-lst2 = lst_forward + lst_backward
+result1 = abs(j - i) - 1  # по часовой
+result2 = n - 2 - result1  # против часовой
 
-result1 = abs(lst.index(i) - lst.index(j)) - 1
-result2 = abs(lst2.index(i) - lst2.index(j)) - 1
-
-print(result1 if result1 < result2 else result2)
+print(min(result1, result2))
