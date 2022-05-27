@@ -33,3 +33,24 @@ for house in houses_indexes:
     diffs.append(min(every_diff))
 
 print(max(diffs))
+
+# После разбора за O(N)
+left = [0] * len(street)  # список расстояний
+shop_pos = -20  # заведомо не возможное положение слева
+# проход слева на право
+for i in range(len(street)):
+    if street[i] == 2:
+        shop_pos = i
+    if street[i] == 1:
+        left[i] == i - shop_pos
+
+answer = 0
+shop_pos = 30  # заведомо не возможное положение справа
+for i in range(len(street) - 1, -1, -1):  # в обратную сторону
+    if street[i] == 2:
+        shop_pos = i
+    if street[i] == 1:
+        min_dist = min(shop_pos - i, left[i])
+        answer = max(ans, min_dist)
+
+print(answer)
