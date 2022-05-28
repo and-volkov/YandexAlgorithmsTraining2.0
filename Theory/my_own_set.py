@@ -1,5 +1,11 @@
 """Написать свое собственное множество"""
 
+"""
+F(x) = X % setsize - хеш-функция
+MySet (список списков) - хеш-таблица
+Совпадения значений хещ-функции для разных параметров - коллизия
+"""
+
 
 class MySet:
     def __init__(self, setsize):
@@ -7,7 +13,8 @@ class MySet:
         self.my_set = [[] for _ in range(self.setsize)]
 
     def add(self, x):
-        self.my_set[x % self.setsize].append(x)
+        if not self.find(x):  # если такого элемента нет - добавляем
+            self.my_set[x % self.setsize].append(x)
 
     def find(self, x):
         for item in self.my_set[x % self.setsize]:
