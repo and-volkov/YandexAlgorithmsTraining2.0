@@ -9,7 +9,7 @@
 input_list = list(map(int, input().split()))
 
 
-def find_unique_items(items_list: list) -> list:
+def find_unique_items(items_list: list) -> str:
     count_dict = {}
     for item in items_list:
         if item not in count_dict.keys():
@@ -17,7 +17,7 @@ def find_unique_items(items_list: list) -> list:
         else:
             count_dict[item] += 1
     ans = [str(key) for key in count_dict.keys() if count_dict[key] == 1]
-    print(' '.join(ans))
+    return ' '.join(ans)
 
 
-find_unique_items(input_list)
+print(find_unique_items(input_list))
