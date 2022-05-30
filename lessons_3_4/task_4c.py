@@ -14,24 +14,20 @@
 Формат вывода
 Выведите ответ на задачу.
 """
-from operator import itemgetter
 
 with open('input_4c.txt', 'r') as f:
     lines = f.readlines()  # все остальные строки
 
 words_dict = {}
 for line in lines:
-    line = list(line.strip().split())
+    line = line.split()
     for word in line:
-        if word not in words_dict.keys():
-            words_dict[word] = 0
-        words_dict[word] += 1
+        words_dict[word] = words_dict.get(word, 0) + 1
 
 ans_list = []
 for key, value in words_dict.items():
-    ans_list.append((value, key))
+    ans_list.append((-value, key))
 
-ans_list = sorted(ans_list, key=itemgetter(1))
-ans_list = sorted(ans_list, key=itemgetter(0), reverse=True)
-for answer in ans_list:
-    print(answer[1])
+ans_list.sort()
+for count, word in ans_list:
+    print(word)
